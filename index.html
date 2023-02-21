@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Graph</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 100%;
+            display: flex;
+        }
+
+        #graph {
+            position: relative;
+            margin: 20px;
+            width: calc(100% - 300px);
+            height: 400px;
+            background-color: white;
+            border: 1px solid black;
+            overflow-x: scroll;
+        }
+
+        #graph canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        #controls {
+            background-color: #F2F2F2;
+            padding: 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #controls label {
+            color: #000000;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #controls input[type="text"] {
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            color: #000000;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        #controls button {
+            background-color: #0078D7;
+            border: none;
+            border-radius: 4px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        #controls button:hover {
+            background-color: #106EBE;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <button id="menu-btn">
+                <span class="material-icons-sharp">menu</span>
+            </button>
+            <img class="logo" draggable="false" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" width="30px" height="30px" alt="Graph Tool">
+            <div class="file-display-bar">
+                <span class="material-icons-sharp">search</span>
+                <input type="search" placeholder="Nothing here yet..." disabled>
+            </div>
+            <div class="profile-area">
+                </div>
+                <div class="profile">
+                    <div class="profile-photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <aside>
+            <button id="close-btn">
+                <span class="material-icons-sharp">close</span>
+            </button>
+
+            <div class="sidebar">
+                <a class="active" href="#">
+                    <span class="material-icons-sharp">list</span>
+                    <h4>Graph</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">add_box</span>
+                    <h4>Calculator</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">data_object</span>
+                    <h4>JSON Data</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">insert_chart</span>
+                    <h4>Statistics</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">info</span>
+                    <h4>About</h4>
+                </a>
+            </div>
+        </aside>
+
+
+        <div id="container">
+            <div id="graph"></div>
+        </div>
+        <section class="right">
+
+            <div id="controls">
+                <h2>Add Function</h2>
+                <label for="function-input">f(x) = </label>
+                <input type="text" id="function-input" placeholder="Enter a function">
+                <button id="add-function-button">Add Function</button>
+            </div>
+        </section>
+
+        <section class="middle">
+
+        </section>
+    </main>
+    <script src="./third/chart.js"></script>
+    <script src="./third/math.min.js"></script>
+    <script type="module" src="./dist/main.js"></script>
+</body>
+
+</html>
