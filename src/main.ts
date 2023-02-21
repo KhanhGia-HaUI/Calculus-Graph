@@ -117,4 +117,5 @@ namespace KhanhGia.Graph.Draw {
 
   }
 }
+export default KhanhGia;
 KhanhGia.Graph.Draw.main()
